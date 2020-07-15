@@ -27,7 +27,7 @@ class Parser {
   parse(source) {
     const html = this.markdown.render(source);
     const { wrapper } = this.options;
-    return `<${wrapper}>${html}</${wrapper}>`;
+    return `function (props){return (<${wrapper}>${html}</${wrapper}>)}`;
   }
 }
 

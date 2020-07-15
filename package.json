@@ -1,5 +1,5 @@
 {
-  "name": "md2jsx-loader",
+  "name": "md-loader",
   "version": "1.0.0",
   "description": "a webpack loader to transform markdown to jsx",
   "main": "index.js",
@@ -18,8 +18,9 @@
   },
   "homepage": "https://github.com/justforfunmy/md2jsx-loader#readme",
   "dependencies": {
+    "highlight.js": "^10.1.1",
     "loader-utils": "^2.0.0",
-    "highlight.js": "^10.1.1"
+    "markdown-it": "^11.0.0"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
