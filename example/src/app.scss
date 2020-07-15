@@ -1,0 +1,21 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 1000px;
+  margin: 0 auto;
+  .app-header {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 30px;
+  }
+}
+
+pre {
+  padding: 20px;
+  border-radius: 10px;
+  background: rgb(40, 42, 54);
+  color: #fff;
+}
