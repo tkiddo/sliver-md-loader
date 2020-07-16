@@ -19,6 +19,7 @@
         "exports": "never",
         "functions": "never"
       }
-    ]
+    ],
+    "implicit-arrow-linebreak": "off"
   }
 }

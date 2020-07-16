@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/justforfunmy/md2jsx-loader#readme",
   "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-react": "^7.10.4",
     "highlight.js": "^10.1.1",
     "loader-utils": "^2.0.0",
-    "markdown-it": "^11.0.0"
+    "markdown-it": "^11.0.0",
+    "schema-utils": "^2.7.0"
   },
   "devDependencies": {
     "eslint": "^7.4.0",

@@ -32,29 +32,10 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'md-loader',
             options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    useBuiltIns: 'usage',
-                    corejs: {
-                      version: '3.6',
-                      proposals: true
-                    }
-                  },
-                  '@babel/preset-react'
-                ]
-              ],
-              // 第二次构建时会读取缓存
-              cacheDirectory: true,
-              // 动态导入语法
-              plugins: ['@babel/plugin-syntax-dynamic-import']
+              mode: 'react'
             }
-          },
-          {
-            loader: 'md-loader'
           }
         ]
       },

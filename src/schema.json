@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string"
+    },
+    "rootElement": {
+      "type": "string"
+    },
+    "rootClass": {
+      "type": "string"
+    },
+    "markdown": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
