@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justforfunmy/md2jsx-loader.git"
+    "url": "git+https://github.com/justforfunmy/md-loader.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/justforfunmy/md2jsx-loader/issues"
+    "url": "https://github.com/justforfunmy/md-loader/issues"
   },
-  "homepage": "https://github.com/justforfunmy/md2jsx-loader#readme",
+  "homepage": "https://github.com/justforfunmy/md-loader#readme",
   "dependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-react": "^7.10.4",
