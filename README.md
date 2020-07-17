@@ -1,4 +1,4 @@
-# md-loader
+# sliver-md-loader
 
 > a webpack loader to parse markdown file to html or reactComponent
 
@@ -19,11 +19,11 @@
 ## Install
 
 ```
-yarn add md-loader --dev
+yarn add sliver-md-loader --dev
 
 or
 
-npm install md-loader --save-dev
+npm install sliver-md-loader --save-dev
 ```
 
 ## Usage
@@ -76,7 +76,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'md-loader',
+            loader: 'sliver-md-loader',
             options: {
               mode: 'html'
             }
@@ -102,7 +102,7 @@ ele.innerHTML = md;
 
 > To use react ,you have to install `@babe/core` and `@babel/preset-react` first. Get more information about [Babel](https://babeljs.io/)
 
-change the mode option for md-loader:
+change the mode option for sliver-md-loader:
 
 ```js
 //webpack.config.js
@@ -116,7 +116,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'md-loader',
+            loader: 'sliver-md-loader',
             options: {
               mode: 'react'
             }
