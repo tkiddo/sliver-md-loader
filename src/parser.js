@@ -10,6 +10,7 @@ const stringify = (src) =>
 
 const DEFAULT_MARKDOWN_OPTIONS = {
   html: true,
+  xhtmlOut: true,
   highlight(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
@@ -29,7 +30,8 @@ class Parser {
       rootClass: 'markdown',
       markdown: { ...DEFAULT_MARKDOWN_OPTIONS }
     };
-    this.options = { ...defaultOptions, ..._options };
+    const markdownOptions = { ...DEFAULT_MARKDOWN_OPTIONS, ..._options.markdown };
+    this.options = { ...defaultOptions, ..._options, markdown: markdownOptions };
     this.markdown = new MarkdownIt(this.options.markdown);
     this.exports = '';
     this.prependOutput = '';
