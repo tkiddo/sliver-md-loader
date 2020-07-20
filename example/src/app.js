@@ -7,7 +7,7 @@ import 'highlight.js/styles/dracula.css';
 function App() {
   return (
     <div className="app">
-      <Md.body />
+      <Md />
     </div>
   );
 }

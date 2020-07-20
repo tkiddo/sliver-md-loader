@@ -95,7 +95,7 @@ then you can import `markdown` file in your project, just like this:
 import md from 'path/to/md-file';
 
 const ele = document.createElement('div');
-ele.innerHTML = md.body;
+ele.innerHTML = md;
 ```
 
 ### To React Component
@@ -140,7 +140,7 @@ import 'highlight.js/styles/dracula.css';
 function App() {
   return (
     <div className="app">
-      <Md.body />
+      <Md />
     </div>
   );
 }

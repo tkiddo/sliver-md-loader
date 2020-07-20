@@ -51,14 +51,12 @@ class Parser {
     const html = this.markdown.render(fm.body);
     const { rootElement, mode, rootClass } = this.options;
 
-    this.addProperty('attributes', stringify(fm.attributes));
-
     const body = `<${rootElement} ${
       mode === 'react' ? 'className' : 'class'
     }="${rootClass}" >${html}</${rootElement}>`;
 
     if (mode === 'html') {
-      this.addProperty('body', stringify(body));
+      this.exports = stringify(body);
     } else if (mode === 'react') {
       this.addPrependCode("const React = require('react')");
 
@@ -83,12 +81,12 @@ class Parser {
         return markdown
       }`;
 
-      this.addProperty('body', reactComponent);
+      this.exports = reactComponent;
     } else {
       throw new Error('unexpected mode! avaliable mode: react or html');
     }
 
-    return `${this.prependOutput}\nmodule.exports = {${this.exports}}`;
+    return `${this.prependOutput}\nmodule.exports = ${this.exports}`;
   }
 }
 
