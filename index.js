@@ -13,5 +13,5 @@ module.exports = function mdLoader(source) {
     baseDataPath: 'options'
   });
 
-  return new Parser(options).parse(source);
+  return new Parser(options).parse(source, this);
 };

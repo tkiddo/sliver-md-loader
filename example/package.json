@@ -2,7 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "/example/dist/",
   "scripts": {
     "build": "webpack --progress --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",

@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PostcssPresetEnv = require('postcss-preset-env');
 const CopyPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const webpack = require('webpack');
 const pkg = require('./package.json');
@@ -96,6 +95,18 @@ module.exports = {
         // 所有文件只会有一个loader处理一个，注意：不能有两个配置处理同一个文件
         oneOf: [
           {
+            test: /\.md$/,
+            exclude: /node_modules/,
+            use: [
+              {
+                loader: 'md-loader',
+                options: {
+                  mode: 'react'
+                }
+              }
+            ]
+          },
+          {
             test: /\.(js|jsx)$/,
             use: {
               loader: 'babel-loader',
@@ -164,7 +175,7 @@ module.exports = {
             exclude: /node_modules/
           },
           {
-            exclude: /\.(css|less|scss|js|html|jpg|png|gif)$/,
+            exclude: /\.(css|less|scss|js|html|jpg|png|gif|md)$/,
             use: [
               {
                 loader: 'file-loader',
@@ -215,9 +226,6 @@ module.exports = {
     }),
     new AddAssetHtmlPlugin({
       filepath: path.resolve(__dirname, 'dll/react.js')
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
     })
   ]
 };

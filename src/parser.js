@@ -66,7 +66,8 @@ class Parser {
           '<code$1 dangerouslySetInnerHTML={{ __html: `$2`}} />'
         )
         .replace(/<code>(.+?)<\/code>/gs, '<code dangerouslySetInnerHTML={{ __html: `$1`}} />')
-        .replace(/<(code|pre)([^\s>]*)\sclass=([^>]+)>/g, '<$1$2 className=$3>');
+        .replace(/<(code|pre)([^\s>]*)\sclass=([^>]+)>/g, '<$1$2 className=$3>')
+        .replace(/<img src="(.+?)"/, '<img src={require("$1").default}');
 
       const compiled = babelCore.transformSync(`const markdown = ${template}`, {
         presets: ['@babel/preset-react']

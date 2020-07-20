@@ -7,6 +7,7 @@ import 'highlight.js/styles/dracula.css';
 function App() {
   return (
     <div className="app">
+			<img src={require('./assets/logo.png').default} alt='logo'/>
       <Md />
     </div>
   );
