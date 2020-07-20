@@ -2,6 +2,7 @@ const MarkdownIt = require('markdown-it');
 const hljs = require('highlight.js');
 const babelCore = require('@babel/core');
 require('@babel/preset-react');
+const frontmatter = require('front-matter');
 
 const stringify = (src) =>
   JSON.stringify(src)
@@ -41,16 +42,23 @@ class Parser {
     this.prependOutput = this.prependOutput.concat(`${code}\n`);
   }
 
+  addProperty(key, value) {
+    this.exports += `${key}:${value},`;
+  }
+
   parse(source) {
-    const html = this.markdown.render(source);
+    const fm = frontmatter(source);
+    const html = this.markdown.render(fm.body);
     const { rootElement, mode, rootClass } = this.options;
+
+    this.addProperty('attributes', stringify(fm.attributes));
 
     const body = `<${rootElement} ${
       mode === 'react' ? 'className' : 'class'
     }="${rootClass}" >${html}</${rootElement}>`;
 
     if (mode === 'html') {
-      this.exports = stringify(body);
+      this.addProperty('body', stringify(body));
     } else if (mode === 'react') {
       this.addPrependCode("const React = require('react')");
 
@@ -75,12 +83,12 @@ class Parser {
         return markdown
       }`;
 
-      this.exports = reactComponent;
+      this.addProperty('body', reactComponent);
     } else {
       throw new Error('unexpected mode! avaliable mode: react or html');
     }
 
-    return `${this.prependOutput}\nmodule.exports = ${this.exports}`;
+    return `${this.prependOutput}\nmodule.exports = {${this.exports}}`;
   }
 }
 
