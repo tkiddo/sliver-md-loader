@@ -61,11 +61,11 @@ class Parser {
       this.addPrependCode("const React = require('react')");
 
       const template = body
-        .replace(
-          /<code(\s[^>]+)>(.+?)<\/code>/gs,
-          '<code$1 dangerouslySetInnerHTML={{ __html: `$2`}} />'
-        )
-        .replace(/<code>(.+?)<\/code>/gs, '<code dangerouslySetInnerHTML={{ __html: `$1`}} />')
+        // .replace(
+        //   /<code(\s[^>]+)>(.+?)<\/code>/gs,
+        //   '<code$1 dangerouslySetInnerHTML={{ __html: `$2`}} />'
+        // )
+        // .replace(/<code>(.+?)<\/code>/gs, '<code dangerouslySetInnerHTML={{ __html: `$1`}} />')
         .replace(/<(code|pre)([^\s>]*)\sclass=([^>]+)>/g, '<$1$2 className=$3>')
         .replace(/<img src="(.+?)"/g, '<img src={require("$1").default}');
 
