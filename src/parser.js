@@ -67,11 +67,11 @@ class Parser {
         )
         .replace(/<code>(.+?)<\/code>/gs, '<code dangerouslySetInnerHTML={{ __html:`$1`}} />')
         .replace(/<(code|pre)([^\s>]*)\sclass=([^>]+)>/g, '<$1$2 className=$3>')
-        .replace(/<img src="(.+?)"/g, '<img src={require("$1").default}')
+        .replace(/<img src="(.+?)"/gs, '<img src={require("$1").default}')
         // 解决模版字符串输出异常问题
-        .replace(/>`</g, '>0319<')
-        .replace(/`<\/span>/, '0319</span>')
-        .replace(/\$\{/g, '0909');
+        .replace(/`/g, 'fuck')
+        .replace(/\$\{/g, 'shit')
+        .replace(/__html:fuck(.+?)fuck}} \/>/gs, '__html:`$1`}} />');
 
       // eslint-disable-next-line prefer-template
       const compiled = babelCore.transformSync('const markdown = ' + template, {
@@ -79,7 +79,7 @@ class Parser {
       });
 
       let { code } = compiled;
-      code = code.replace(/0319/g, '\\`').replace(/0909/g, '\\$\\{');
+      code = code.replace(/fuck/g, '\\`').replace(/shit/g, '\\$\\{');
 
       const reactComponent = `
       function (props) {

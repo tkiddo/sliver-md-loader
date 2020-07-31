@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import './app.scss';
-import Md from './assets/text.md';
+import Md from './assets/t.md';
 import 'highlight.js/styles/dracula.css';
 
 function App() {
