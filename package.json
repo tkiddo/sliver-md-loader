@@ -1,6 +1,6 @@
 {
   "name": "sliver-md-loader",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a webpack loader to transform markdown to jsx",
   "main": "index.js",
   "scripts": {
